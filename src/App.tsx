@@ -1,12 +1,11 @@
-import { Main, Sidebar } from "./components"
-const App: React.FC = function() {
-
+import { Main, Sidebar } from "./components";
+const App: React.FC = function () {
   return (
     <main className="w-full h-full flex items-start">
-      <Main />
       <Sidebar />
+      <Main />
     </main>
-  )
-}
+  );
+};
 
-export default App
+export default App;
