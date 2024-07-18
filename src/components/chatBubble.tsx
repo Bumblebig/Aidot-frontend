@@ -1,5 +1,5 @@
 interface ChatBubbleProps {
-  message: string;
+  message: any;
   status: string;
 }
 
@@ -12,7 +12,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = function ({ message, status }) {
           : "self-end bg-green-300"
       }`}
     >
-      <p>{message}</p>
+      <div>{message}</div>
     </div>
   );
 };

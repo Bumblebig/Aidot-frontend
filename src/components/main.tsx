@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import ReactMarkdown from "react-markdown";
 import { ChatBubble } from ".";
 
 interface GlobalMessage {
@@ -9,7 +10,6 @@ interface GlobalMessage {
 
 const Main: React.FC = function () {
   const [input, setInput] = useState("");
-  const [chat, setChat] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [global, setGlobal] = useState<GlobalMessage[]>([]);
 
@@ -18,8 +18,8 @@ const Main: React.FC = function () {
   }
 
   const handleSend = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (input) {
-      e.preventDefault();
       console.log("clicked");
       if (!loading) {
         setLoading(true);
@@ -44,7 +44,6 @@ const Main: React.FC = function () {
           setInput("");
         } catch (error) {
           console.error("Error sending message:", error);
-          setChat("An error occurred. Please try again.");
           setGlobal((prevGlobal) => [
             ...prevGlobal,
             {
@@ -65,8 +64,8 @@ const Main: React.FC = function () {
     }
   };
 
-  console.log("Global below");
   console.log(global);
+
   return (
     <section className="bg-white h-screen w-full overflow-hidden pt-14 pb-24">
       <div className="w-full p-4 fixed top-0 left-0 shadow-lg cursor-pointer">
@@ -74,15 +73,15 @@ const Main: React.FC = function () {
       </div>
       <div className="overflow-y-auto h-full p-4 flex flex-col gap-3 md:gap-4">
         {global.map((item, index) => {
-          if (item.content != "")
+          if (item.content !== "") {
             return (
               <ChatBubble
                 key={index}
-                message={item.content}
                 status={item.status}
+                message={<ReactMarkdown>{item.content}</ReactMarkdown>}
               />
             );
-          else
+          } else {
             return (
               <ChatBubble
                 key={index}
@@ -90,6 +89,7 @@ const Main: React.FC = function () {
                 status={item.status}
               />
             );
+          }
         })}
       </div>
       <form
