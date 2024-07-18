@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
-import { ChatBubble } from ".";
-import { Menu } from "../assets";
+import { ChatBubble } from "..";
+import { Menu } from "../../assets";
 
 interface GlobalMessage {
   status: string;

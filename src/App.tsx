@@ -1,10 +1,14 @@
-import { Main, Sidebar } from "./components";
+import { Route, Routes } from "react-router-dom";
+import ChatMain from "./pages/chat/ChatMain";
+import HomePage from "./pages/home/Home";
 const App: React.FC = function () {
   return (
-    <main className="w-full h-full flex items-start">
-      <Sidebar />
-      <Main />
-    </main>
+    <section>
+      <Routes>
+        <Route element={<HomePage />} path="/" />
+        <Route element={<ChatMain />} path="chat" />
+      </Routes>
+    </section>
   );
 };
 
