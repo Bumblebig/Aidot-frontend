@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import { ChatBubble } from ".";
@@ -13,6 +13,15 @@ const Main: React.FC = function () {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [global, setGlobal] = useState<GlobalMessage[]>([]);
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [global]);
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     setInput(e.target.value);
@@ -92,6 +101,7 @@ const Main: React.FC = function () {
             );
           }
         })}
+        <div ref={messagesEndRef} />
       </div>
       <form
         className="w-full absolute bottom-0 left-0 flex justify-between px-3 py-4"
