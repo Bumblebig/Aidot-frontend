@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 const HomePage: React.FC = function () {
   return (
-    <section className="w-full h-screen p-4 py-12 pt-14 bg-neutral-500 text-white md:pt-20 md:px-8 lg:flex lg:items-center lg:gap-20 lg:px-20 lg:py-0">
+    <section className="w-full h-screen flex items-center justify-center p-4 py-12 pt-14 bg-neutral-500 text-white md:pt-20 md:px-8 lg:flex lg:items-center lg:justify-start lg:gap-20 lg:px-20 lg:py-0">
       <div className="text-center md:text-left md:max-w-[80%] lg:w-[80%]">
         <h1 className="text-3xl font-bold mb-7">AIDOT</h1>
         <p className="text-lg font-medium">
