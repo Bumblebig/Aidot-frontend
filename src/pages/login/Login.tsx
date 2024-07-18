@@ -19,9 +19,12 @@ const Login: React.FC = function () {
           <h1 className="font-bold text-5xl leading-tight">
             Login to get started!
           </h1>
-          <Link to="/register" className="mt-4 block">
-            Don't have an account? <span className="underline">register</span>
-          </Link>
+          <p className="mt-4 block">
+            Don't have an account?{" "}
+            <Link to="/register" className="underline">
+              register
+            </Link>
+          </p>
         </div>
       </div>
 
@@ -50,7 +53,7 @@ const Login: React.FC = function () {
             <input
               type="password"
               name="password"
-              placeholder="password"
+              placeholder="Password"
               id="password"
               required
               className="block border-b border-black outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4"
