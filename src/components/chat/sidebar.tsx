@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import wing from "../../assets/pngwing.com.png";
 const Sidebar: React.FC = function () {
   return (
@@ -12,12 +13,18 @@ const Sidebar: React.FC = function () {
       </div>
 
       <div className="flex flex-col gap-3">
-        <button className="block text-lg max-w-48 mx-auto border border-black rounded py-1 px-4">
+        <Link
+          to="/login"
+          className="block text-lg max-w-48 mx-auto border border-black rounded py-1 px-4"
+        >
           Sign In
-        </button>
-        <button className="block text-lg max-w-48 mx-auto bg-black text-white rounded py-1 px-4">
+        </Link>
+        <Link
+          to="/register"
+          className="block text-lg max-w-48 mx-auto bg-black text-white rounded py-1 px-4"
+        >
           Sign Up
-        </button>
+        </Link>
       </div>
 
       <button className="text-lg max-w-48 mx-auto bg-black text-white rounded py-1 px-4 hidden">
