@@ -36,7 +36,7 @@ const Register: React.FC = function () {
       <div className="lg:flex lg:items-center lg:justify-center lg:h-screen lg:w-full">
         <form className="w-max shadow-xl bg-gray-50 p-8 rounded flex flex-col gap-6 py-12">
           <div>
-            <label htmlFor="name" className="text-lg mb-3 block">
+            <label htmlFor="name" className="text-lg mb-3 block text-gray-950">
               Name:
             </label>
             <input
@@ -45,14 +45,14 @@ const Register: React.FC = function () {
               placeholder="John Doe"
               id="name"
               required
-              className="block border-b border-black outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4"
+              className="block border-b border-neutral-500 outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4 text-neutral-500"
               value={name}
               onChange={handleName}
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="text-lg mb-3 block">
+            <label htmlFor="email" className="text-lg mb-3 block text-gray-950">
               Email:
             </label>
             <input
@@ -61,14 +61,17 @@ const Register: React.FC = function () {
               placeholder="abc@example.com"
               id="email"
               required
-              className="block border-b border-black outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4"
+              className="block border-b border-neutral-500 outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4 text-neutral-500"
               value={email}
               onChange={handleEmail}
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="text-lg mb-3 block">
+            <label
+              htmlFor="password"
+              className="text-lg mb-3 block text-gray-950"
+            >
               Password:
             </label>
             <input
@@ -77,7 +80,7 @@ const Register: React.FC = function () {
               placeholder="Password"
               id="password"
               required
-              className="block border-b border-black outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4"
+              className="block border-b border-neutral-500 outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4 text-neutral-500"
               value={password}
               onChange={handlePassword}
             />
@@ -86,7 +89,7 @@ const Register: React.FC = function () {
           <input
             type="submit"
             value="Register"
-            className="cursor-pointer bg-gray-950 text-white mt-6 py-2"
+            className="cursor-pointer bg-neutral-500 text-white mt-6 py-2"
           />
         </form>
       </div>

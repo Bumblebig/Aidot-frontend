@@ -15,19 +15,19 @@ const Sidebar: React.FC = function () {
       <div className="flex flex-col gap-3">
         <Link
           to="/login"
-          className="block text-lg max-w-48 mx-auto border border-black rounded py-1 px-4"
+          className="block text-lg max-w-48 mx-auto border border-neutral-500 rounded py-1 px-4"
         >
           Sign In
         </Link>
         <Link
           to="/register"
-          className="block text-lg max-w-48 mx-auto bg-black text-white rounded py-1 px-4"
+          className="block text-lg max-w-48 mx-auto bg-neutral-500 text-white rounded py-1 px-4"
         >
           Sign Up
         </Link>
       </div>
 
-      <button className="text-lg max-w-48 mx-auto bg-black text-white rounded py-1 px-4 hidden">
+      <button className="text-lg max-w-48 mx-auto bg-neutral-500 text-white rounded py-1 px-4 hidden">
         Log Out
       </button>
     </section>
