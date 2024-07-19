@@ -16,7 +16,10 @@ const App: React.FC = function () {
     <section>
       <Routes>
         <Route element={<HomePage />} path="/" />
-        <Route element={<ChatMain />} path="chat" />
+        <Route
+          element={!user ? <Navigate to="/login" /> : <ChatMain />}
+          path="chat"
+        />
         <Route
           element={user ? <Navigate to="/chat" /> : <Login />}
           path="/login"

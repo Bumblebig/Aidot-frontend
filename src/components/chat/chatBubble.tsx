@@ -1,5 +1,5 @@
 interface ChatBubbleProps {
-  message: any;
+  message: React.ReactNode;
   status: string;
 }
 

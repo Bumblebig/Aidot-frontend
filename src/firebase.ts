@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAm-51Sy6YZISoR_LIH9Eh21SkkwGMtuL8",
-  authDomain: "health-rag.firebaseapp.com",
-  projectId: "health-rag",
-  storageBucket: "health-rag.appspot.com",
-  messagingSenderId: "1077514819681",
-  appId: "1:1077514819681:web:b5f9a2fc38961752a0f220"
+  apiKey: import.meta.env.VITE_AIDOT_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_AIDOT_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_AIDOT_FIREBASE_PROJECT_ID ,
+  storageBucket: import.meta.env.VITE_AIDOT_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_AIDOT_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_AIDOT_FIREBASE_APP_ID
 };
 
 // Initialize Firebase

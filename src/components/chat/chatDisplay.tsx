@@ -50,7 +50,6 @@ const ChatDisplay: React.FC = function () {
     scrollToBottom();
   }, [global]);
 
-  console.log(global);
   return (
     <div className="overflow-y-auto h-full p-4 flex flex-col gap-3 md:gap-4">
       {global.map((item, index) => {

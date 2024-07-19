@@ -19,7 +19,6 @@ const Login: React.FC = function () {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      console.log("User logged in successfully");
       setIsError(false);
       reset();
       window.location.href = "/chat";

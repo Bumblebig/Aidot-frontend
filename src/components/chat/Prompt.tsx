@@ -9,7 +9,6 @@ const Prompt: React.FC = function () {
   const handleSend = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input) {
-      console.log("clicked");
       if (!loading) {
         setLoading(true);
         try {
@@ -17,7 +16,6 @@ const Prompt: React.FC = function () {
             "https://aidot.onrender.com/api/chatbot",
             { message: input }
           );
-          console.log(response);
           const botResponse = response.data.response;
           let checkResponse: string = "";
           if (botResponse != "") checkResponse = botResponse;

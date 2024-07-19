@@ -8,8 +8,8 @@ const Sidebar: React.FC = function () {
   const logout = async () => {
     try {
       await auth.signOut();
-      window.location.href = "/";
       setIsLoggedIn(false);
+      window.location.href = "/";
     } catch (error) {
       console.log(error);
       setIsLoggedIn(true);
