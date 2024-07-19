@@ -1,16 +1,37 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 const Login: React.FC = function () {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [errMessage, setErrMessage] = useState("");
 
-  const handleEmail = function (e: React.ChangeEvent<HTMLInputElement>) {
-    setEmail(e.target.value);
+  const reset = (): void => {
+    setEmail("");
+    setPassword("");
   };
 
-  const handlePassword = function (e: React.ChangeEvent<HTMLInputElement>) {
-    setPassword(e.target.value);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      console.log("User logged in successfully");
+      setIsError(false);
+      reset();
+      window.location.href = "/chat";
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.log(error.message);
+        setIsError(true);
+        setErrMessage(error.message);
+      } else {
+        console.log("An unknown error occurred");
+      }
+    }
   };
   return (
     <section className="w-full h-screen bg-white flex items-center justify-center lg:justify-start">
@@ -29,7 +50,10 @@ const Login: React.FC = function () {
       </div>
 
       <div className="lg:flex lg:items-center lg:justify-center lg:h-screen lg:w-full">
-        <form className="w-max shadow-xl bg-gray-50 p-8 rounded flex flex-col gap-6 py-12">
+        <form
+          className="w-max shadow-xl bg-gray-50 p-8 rounded flex flex-col gap-6 py-12"
+          onSubmit={handleSubmit}
+        >
           <div>
             <label htmlFor="email" className="text-lg mb-3 block text-gray-950">
               Email:
@@ -42,7 +66,7 @@ const Login: React.FC = function () {
               required
               className="block border-b border-neutral-500 outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4 text-neutral-500"
               value={email}
-              onChange={handleEmail}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -61,15 +85,20 @@ const Login: React.FC = function () {
               required
               className="block border-b border-neutral-500 outline-none w-[300px] py-2 px-4 bg-gray-50 focus:border-b-4 text-neutral-500"
               value={password}
-              onChange={handlePassword}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
-          <input
-            type="submit"
-            value="Login"
-            className="cursor-pointer bg-neutral-500 text-white mt-6 py-2"
-          />
+          <div>
+            <input
+              type="submit"
+              value="Login"
+              className="cursor-pointer block w-full bg-neutral-500 text-white mt-6 py-2"
+            />
+            <p className={`text-red-500 ${isError ? "block" : "hidden"} mt-4`}>
+              {errMessage}
+            </p>
+          </div>
         </form>
       </div>
     </section>
