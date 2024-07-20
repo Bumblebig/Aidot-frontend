@@ -1,6 +1,6 @@
 import { useSharedBarState } from "../context/SharedBarState";
-const Menu = function () {
-  const { turnOnBar } = useSharedBarState();
+const Cancel = function () {
+  const { turnOffBar } = useSharedBarState();
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,16 +8,16 @@ const Menu = function () {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
-      onClick={turnOnBar}
+      className="size-8 absolute right-0 mr-3"
+      onClick={turnOffBar}
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
+        d="M6 18 18 6M6 6l12 12"
       />
     </svg>
   );
 };
 
-export default Menu;
+export default Cancel;

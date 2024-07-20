@@ -11,14 +11,12 @@ const Sidebar: React.FC = function () {
       setIsLoggedIn(false);
       window.location.href = "/";
     } catch (error) {
-      console.log(error);
       setIsLoggedIn(true);
     }
   };
 
   const loggedState = async () => {
     auth.onAuthStateChanged(async (user) => {
-      console.log(user);
       if (user) setIsLoggedIn(true);
       else setIsLoggedIn(false);
     });
