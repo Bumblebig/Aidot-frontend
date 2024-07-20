@@ -24,9 +24,9 @@ const Login: React.FC = function () {
       window.location.href = "/chat";
     } catch (error: unknown) {
       if (error instanceof Error) {
-        console.log(error.message);
+        console.log(error);
         setIsError(true);
-        setErrMessage(error.message);
+        setErrMessage("Invalid email or password");
       } else {
         console.log("An unknown error occurred");
       }
@@ -94,8 +94,20 @@ const Login: React.FC = function () {
               value="Login"
               className="cursor-pointer block w-full bg-neutral-500 text-white mt-6 py-2"
             />
-            <p className={`text-red-500 ${isError ? "block" : "hidden"} mt-4`}>
+            <p
+              className={`text-red-500 text-center ${
+                isError ? "block" : "hidden"
+              } mt-4`}
+            >
               {errMessage}
+            </p>
+
+            <p className="mt-8 text-center lg:hidden">
+              {" "}
+              Don't have an account?{" "}
+              <Link to="/register" className="underline">
+                register
+              </Link>
             </p>
           </div>
         </form>
