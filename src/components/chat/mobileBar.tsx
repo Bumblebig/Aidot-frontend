@@ -43,7 +43,7 @@ const MobileBar: React.FC = function () {
 
   return (
     <div
-      className={`w-full fixed top-0 left-0 z-[99] h-screen bg-[#00000040] ${
+      className={`w-full fixed top-0 left-0 z-[99] h-full bg-[#00000040] ${
         isMobileBarVisible ? "block" : "hidden"
       }`}
     >
