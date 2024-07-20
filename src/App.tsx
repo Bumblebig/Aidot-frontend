@@ -15,7 +15,7 @@ const App: React.FC = function () {
   }, []);
 
   return (
-    <section className="relative h-full">
+    <section className="relative h-screen">
       <SharedBarStateProvider>
         <MobileBar />
         <Routes>
