@@ -67,7 +67,7 @@ const Prompt: React.FC = function () {
   };
   return (
     <form
-      className="w-full fixed bottom-0 left-0 flex justify-between px-3 py-4"
+      className="w-full fixed bottom-0 left-0 flex justify-between px-3 py-4 lg:absolute"
       onSubmit={handleSend}
     >
       <input
