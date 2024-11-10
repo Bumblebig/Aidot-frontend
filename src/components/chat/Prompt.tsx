@@ -13,7 +13,7 @@ const Prompt: React.FC = function () {
         setLoading(true);
         try {
           const response = await axios.post(
-            "https://aidot.onrender.com/api/chatbot",
+            "https://havva.onrender.com/api/chat",
             { message: input }
           );
           const botResponse = response.data.response;
